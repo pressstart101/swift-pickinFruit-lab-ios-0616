@@ -43,6 +43,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let randomNumber = arc4random_uniform(UInt32(numberOfRows))
         pickerViewLabel.selectRow(Int(randomNumber), inComponent: i, animated: true)
         }
+        
+        let one = self.pickerViewLabel.selectedRowInComponent(0)
+        let two = self.pickerViewLabel.selectedRowInComponent(1)
+        let three = self.pickerViewLabel.selectedRowInComponent(2)
+        //for j in 0..<numberOfComponents{
+            if self.fruitsArray[one % self.fruitsArray.count] == self.fruitsArray[two % self.fruitsArray.count] &&
+                self.fruitsArray[one % self.fruitsArray.count] == self.fruitsArray[three % self.fruitsArray.count] {
+            self.resultLabel.text = "WINNER!"
+            }else{
+        self.resultLabel.text = "TRY AGAIN"
+                
+        }
+        
+        //}
+        
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
